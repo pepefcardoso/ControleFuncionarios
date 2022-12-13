@@ -8,18 +8,17 @@ class TelaFuncionarios():
     def tela_cadastro(self):
         sexos = ["Masculino", "Feminino"]
         layout_info_basico = [[sg.Text('Nome', s=(20,1)),
-                               sg.Input('',key="-NOME-", s=(20,1))],
+                               sg.Input(key="-NOME-", s=(35,1))],
                               [sg.Text('Data de Nascimento', s=(20,1)),
-                               sg.Input('',key="-NASCIMENTO-", s=(20,1)),
+                               sg.Input(key="-NASCIMENTO-", s=(35,1)),
                                sg.CalendarButton("Calendário", target="-NASCIMENTO-", locale="pt-BR", format="%d/%m/%Y")],
                               [sg.Text('Sexo', s=(20,1)),
-                               sg.Combo(sexos,key="-SEXO-", s=(20,1))],
+                               sg.Combo(sexos,key="-SEXO-", s=(35,1))],
                               [sg.Text('Registro Geral', s=(20,1)),
-                               sg.Input('',key="-RG-", s=(20,1))],
+                               sg.Input(key="-RG-", s=(35,1))],
                               [sg.Text('Cadastro de Pessoa Física', s=(20,1)),
-                               sg.Input('',key="-CPF-", s=(20,1))],
-                              [sg.Text('PIS', s=(20,1)),
-                               sg.Input('',key="-PIS-", s=(20,1))]]
+                               sg.Input(key="-CPF-", s=(35,1))],
+                              [sg.Button("Adicionar Colaborador", key="-SALVAR-"), sg.Button("Cancelar", key="-CANCELAR-")]]
         
         estados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
         layout_endereco = [[sg.Text('CEP', s=(20,1)), sg.Input('',key="-CEP-", s=(20,1)), sg.Button('Buscar CEP', key="-BUSCA-CEP-")],
@@ -36,10 +35,13 @@ class TelaFuncionarios():
                           [sg.Text('Contato Emergencial', s=(20,1)), sg.Input('',key="-CONTATO-EMERGENCIAL-", s=(20,1))],
                           [sg.Text('Telefone Emergencial', s=(20,1)), sg.Input('',key="-TELEFONE-EMERGENCIAL-", s=(20,1))]]
 
-        layout_abas = [[sg.TabGroup([[sg.Tab("Informação Básica", layout_info_basico, element_justification="center"),
-                                      sg.Tab("Endereço", layout_endereco, element_justification="center"),
-                                      sg.Tab("Contatos", layout_contato, element_justification="center")]],
-                                    tab_location="lefttop")]]
+        layout_abas = [[sg.TabGroup([[sg.Tab("Informação Básica", layout_info_basico, element_justification="left"),
+                                      sg.Tab("Endereço", layout_endereco, element_justification="left"),
+                                      sg.Tab("Contatos", layout_contato, element_justification="left")]],
+                                    tab_location="topleft",
+                                    expand_x=True,
+                                    expand_y=True)]]
+        self.__window = sg.Window('Controle Funcionários', layout_abas)
 
     def atualiza_dados_endereco(self, estado, cidade, bairro, logradouro):
         self.__window["-UF-"].Update(estado)

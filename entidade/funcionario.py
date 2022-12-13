@@ -5,7 +5,7 @@ from entidade.endereco import Endereco
 class Funcionario():
     def __init__(self, matricula: str,nome: str,
                  sexo: str, rg: str, cpf: str,
-                 pis: str, data_nascimento: date,
+                 data_nascimento: date,
                  endereco: Endereco, email: str,
                  telefone_fixo: str, telefone_celular: str,
                  contato_emergencial: str, telefone_emergencial: str):
@@ -14,7 +14,6 @@ class Funcionario():
         self.__sexo = sexo
         self.__rg = rg
         self.__cpf = cpf
-        self.__pis = pis
         self.__data_nascimento = data_nascimento
         self.__endereco = endereco
         self.__email = email
@@ -67,15 +66,6 @@ class Funcionario():
     def cpf(self,cpf):
         if isinstance(cpf,str):
             self.__cpf = cpf
-
-    @property
-    def pis(self):
-        return self.__pis
-
-    @pis.setter
-    def pis(self,pis):
-        if isinstance(pis,str):
-            self.__pis = pis
 
     @property
     def data_nascimento(self):
