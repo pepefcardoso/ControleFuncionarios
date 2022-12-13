@@ -1,13 +1,11 @@
 class Endereco():
     def __init__(self, cep: str, estado: str,
-                 municipio: str, bairro: str,
-                 tipo_logradouro: str, logradouro: str,
+                 municipio: str, bairro: str,logradouro: str,
                  numero: str, complemento: str):
         self.__cep = cep
         self.__estado = estado
         self.__municipio = municipio
         self.__bairro = bairro
-        self.__tipo_logradouro = tipo_logradouro
         self.__logradouro = logradouro
         self.__numero = numero
         self.__complemento = complemento
@@ -47,15 +45,6 @@ class Endereco():
     def bairro(self,bairro):
         if isinstance(bairro, str):
             self.__bairro = bairro
-
-    @property
-    def tipo_logradouro(self):
-        return self.__tipo_logradouro
-
-    @tipo_logradouro.setter
-    def tipo_logradouro(self,tipo_logradouro):
-        if isinstance(tipo_logradouro, str):
-            self.__tipo_logradouro = tipo_logradouro
 
     @property
     def logradouro(self):
