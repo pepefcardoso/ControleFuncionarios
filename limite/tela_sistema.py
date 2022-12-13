@@ -8,8 +8,8 @@ class TelaSistema():
     def tela_inicial(self):
         sg.theme('LightGreen')
         sg.SetOptions(element_padding=(0, 0))
-        opcoes_menu = [['&Funcionários', ['&Ver Funcionários', '&Adicionar Funcionário', '&Remover Funcionário', '&Alterar Funcionário']]]
-        layout = [[sg.Menu(opcoes_menu, tearoff=False, pad=(200, 1))],
+        opcoes_menu = ['&11111111111111', '&222222222', '&3333333333', '&44444444444']
+        layout = [[sg.Menu(opcoes_menu)],
                   [sg.Output(size=(60, 20))]]
         self.__window = sg.Window('Controle Funcionários',
                            layout,
