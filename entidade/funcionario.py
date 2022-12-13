@@ -7,8 +7,8 @@ class Funcionario():
                  sexo: str, rg: str, cpf: str,
                  pis: str, data_nascimento: date,
                  endereco: Endereco, email: str,
-                 telefone: str, nome_contato_emergencial: str,
-                 telefone_contato_emergencial: str):
+                 telefone_fixo: str, telefone_celular: str,
+                 contato_emergencial: str, telefone_emergencial: str):
         self.__matricula = matricula
         self.__nome = nome
         self.__sexo = sexo
@@ -18,9 +18,10 @@ class Funcionario():
         self.__data_nascimento = data_nascimento
         self.__endereco = endereco
         self.__email = email
-        self.__telefone = telefone
-        self.__nome_contato_emergencial = nome_contato_emergencial
-        self.__telefone_contato_emergencial = telefone_contato_emergencial
+        self.__telefone_fixo = telefone_fixo
+        self.__telefone_celular = telefone_celular
+        self.__contato_emergencial = contato_emergencial
+        self.__telefone_emergencial = telefone_emergencial
 
     @property
     def matricula(self):
@@ -104,28 +105,37 @@ class Funcionario():
             self.__email = email
 
     @property
-    def telefone(self):
-        return self.__telefone
+    def telefone_fixo(self):
+        return self.__telefone_fixo
 
-    @telefone.setter
-    def telefone(self,telefone):
-        if isinstance(telefone,str):
-            self.__telefone = telefone
-
-    @property
-    def nome_contato_emergencial(self):
-        return self.__nome_contato_emergencial
-
-    @nome_contato_emergencial.setter
-    def nome_contato_emergencial(self,nome_contato_emergencial):
-        if isinstance(nome_contato_emergencial,str):
-            self.__nome_contato_emergencial = nome_contato_emergencial
+    @telefone_fixo.setter
+    def telefone_fixo(self,telefone_fixo):
+        if isinstance(telefone_fixo,str):
+            self.__telefone_fixo = telefone_fixo
 
     @property
-    def telefone_contato_emergencial(self):
-        return self.__telefone_contato_emergencial
+    def telefone_celular(self):
+        return self.__telefone_celular
 
-    @telefone_contato_emergencial.setter
-    def telefone_contato_emergencial(self,telefone_contato_emergencial):
-        if isinstance(telefone_contato_emergencial,str):
-            self.__telefone_contato_emergencial = telefone_contato_emergencial
+    @telefone_celular.setter
+    def telefone_celular(self,telefone_celular):
+        if isinstance(telefone_celular,str):
+            self.__telefone_celular = telefone_celular
+
+    @property
+    def contato_emergencial(self):
+        return self.__contato_emergencial
+
+    @contato_emergencial.setter
+    def contato_emergencial(self,contato_emergencial):
+        if isinstance(contato_emergencial,str):
+            self.__contato_emergencial = contato_emergencial
+
+    @property
+    def telefone_emergencial(self):
+        return self.__telefone_emergencial
+
+    @telefone_emergencial.setter
+    def telefone_emergencial(self,telefone_emergencial):
+        if isinstance(telefone_emergencial,str):
+            self.__telefone_emergencial = telefone_emergencial

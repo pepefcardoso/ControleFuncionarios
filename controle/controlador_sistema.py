@@ -16,12 +16,7 @@ class ControladorSistema():
             if event == sg.WIN_CLOSED:
                 break
             if event == "-BUSCA-CEP-":
-                dados = self.consulta_cep(values["-CEP-"])
-                estado = dados['uf']
-                cidade = dados['localidade']
-                bairro = dados['bairro']
-                logradouro = dados['logradouro']
-                self.__tela_sistema.atualiza_dados_endereco(estado, cidade, bairro, logradouro)
+                self.atualiza_dados_endereco(values['-CEP-'])
 
     def consulta_cep(self, cep: str):
         if (cep is not None and
@@ -35,3 +30,15 @@ class ControladorSistema():
                 raise CepInvalidoException
             return dic_requisicao
         raise CepInvalidoException
+
+    def atualiza_dados_endereco(self, cep:str):
+        if (cep is not None and isinstance(cep, str)):
+            try:
+                dados = self.consulta_cep(cep)
+                estado = dados['uf']
+                cidade = dados['localidade']
+                bairro = dados['bairro']
+                logradouro = dados['logradouro']
+                self.__tela_sistema.atualiza_dados_endereco(estado, cidade, bairro, logradouro)
+            except CepInvalidoException as e:
+                self.__tela_sistema.mostra_mensagem('ERRO', e)

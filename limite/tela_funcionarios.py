@@ -30,7 +30,16 @@ class TelaFuncionarios():
                            [sg.Text('Número', s=(20,1)), sg.Input('',key="-NUMERO-", s=(20,1))],
                            [sg.Text('Complemento', s=(20,1)), sg.Input('',key="-COMPLEMENTO-", s=(20,1))],]
         
-        layout_contato = []
+        layout_contato = [[sg.Text('E-mail', s=(20,1)), sg.Input('',key="-EMAIL-", s=(20,1))],
+                          [sg.Text('Telefone Fixo', s=(20,1)), sg.Input('',key="-TELEFONE-FIXO-", s=(20,1))],
+                          [sg.Text('Telefone Celular', s=(20,1)), sg.Input('',key="-TELEFONE-CELULAR-", s=(20,1))],
+                          [sg.Text('Contato Emergencial', s=(20,1)), sg.Input('',key="-CONTATO-EMERGENCIAL-", s=(20,1))],
+                          [sg.Text('Telefone Emergencial', s=(20,1)), sg.Input('',key="-TELEFONE-EMERGENCIAL-", s=(20,1))]]
+
+        layout_abas = [[sg.TabGroup([[sg.Tab("Informação Básica", layout_info_basico, element_justification="center"),
+                                      sg.Tab("Endereço", layout_endereco, element_justification="center"),
+                                      sg.Tab("Contatos", layout_contato, element_justification="center")]],
+                                    tab_location="lefttop")]]
 
     def atualiza_dados_endereco(self, estado, cidade, bairro, logradouro):
         self.__window["-UF-"].Update(estado)
