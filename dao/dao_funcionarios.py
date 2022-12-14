@@ -16,6 +16,9 @@ class DaoFuncionarios(Dao):
         if isinstance(key, str):
             return super().get(key)
 
+    def get_all(self):
+        return super().get_all()
+
     def remove(self, key: str):
         if isinstance(key, str):
             return super().remove(key)

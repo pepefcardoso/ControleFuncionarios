@@ -3,13 +3,12 @@ from entidade.endereco import Endereco
 
 
 class Funcionario():
-    def __init__(self, matricula: str,nome: str,
+    def __init__(self, nome: str,
                  sexo: str, rg: str, cpf: str,
                  data_nascimento: date,
                  endereco: Endereco, email: str,
                  telefone_fixo: str, telefone_celular: str,
                  contato_emergencial: str, telefone_emergencial: str):
-        self.__matricula = matricula
         self.__nome = nome
         self.__sexo = sexo
         self.__rg = rg
@@ -21,15 +20,6 @@ class Funcionario():
         self.__telefone_celular = telefone_celular
         self.__contato_emergencial = contato_emergencial
         self.__telefone_emergencial = telefone_emergencial
-
-    @property
-    def matricula(self):
-        return self.__matricula
-
-    @matricula.setter
-    def matricula(self,matricula):
-        if isinstance(matricula,str):
-            self.__matricula = matricula
 
     @property
     def nome(self):

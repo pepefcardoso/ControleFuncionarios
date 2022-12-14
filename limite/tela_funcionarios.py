@@ -11,7 +11,7 @@ class TelaFuncionarios():
                                sg.Input(key="-NOME-", s=(35,1))],
                               [sg.Text('Data de Nascimento', s=(20,1)),
                                sg.Input(key="-NASCIMENTO-", s=(35,1)),
-                               sg.CalendarButton("Calendário", target="-NASCIMENTO-", locale="pt-BR", format="%d/%m/%Y")],
+                               sg.CalendarButton("Calendário", target="-NASCIMENTO-", format="%d/%m/%Y")],
                               [sg.Text('Sexo', s=(20,1)),
                                sg.Combo(sexos,key="-SEXO-", s=(35,1))],
                               [sg.Text('Registro Geral', s=(20,1)),
@@ -42,6 +42,16 @@ class TelaFuncionarios():
                                     expand_x=True,
                                     expand_y=True)]]
         self.__window = sg.Window('Controle Funcionários', layout_abas)
+
+    def abre(self):
+        event, values = self.__window.Read()
+        return event, values
+
+    def fecha(self):
+        self.__window.Close()
+
+    def mostra_mensagem(self, titulo: str, mensagem: str):
+        sg.Popup(titulo, mensagem)
 
     def atualiza_dados_endereco(self, estado, cidade, bairro, logradouro):
         self.__window["-UF-"].Update(estado)
