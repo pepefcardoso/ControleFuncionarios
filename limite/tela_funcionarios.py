@@ -5,6 +5,17 @@ class TelaFuncionarios():
     def __init__(self):
         self.__window = None
 
+    def tela_inicial(self):
+        headings = ["NOME", "SEXO", "RG", "CPF",
+                    "DATA DE NASCIMENTO", "CEP",
+                    "EMAIL", "CELULAR"]
+        layout = [[sg.Table(values=[],
+                            headings=headings,
+                            key="-LISTA-",
+                            enable_events=True)],
+                  [sg.Button("VOLTAR"), sg.Button("NOVO FUNCIONÁRIO")]]
+        self.__window = sg.Window("FUNCIONÁRIOS", layout, font="Lato")
+
     def tela_cadastro(self):
         sexos = ["Masculino", "Feminino"]
         layout_info_basico = [[sg.Text('Nome', s=(20,1)),
@@ -18,7 +29,7 @@ class TelaFuncionarios():
                                sg.Input(key="-RG-", s=(35,1))],
                               [sg.Text('Cadastro de Pessoa Física', s=(20,1)),
                                sg.Input(key="-CPF-", s=(35,1))],
-                              [sg.Button("Adicionar Colaborador", key="-SALVAR-"), sg.Button("Cancelar", key="-CANCELAR-")]]
+                              [sg.Button("Adicionar Colaborador"), sg.Button("Cancelar")]]
         
         estados = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
         layout_endereco = [[sg.Text('CEP', s=(20,1)), sg.Input('',key="-CEP-", s=(20,1)), sg.Button('Buscar CEP', key="-BUSCA-CEP-")],
@@ -41,7 +52,7 @@ class TelaFuncionarios():
                                     tab_location="topleft",
                                     expand_x=True,
                                     expand_y=True)]]
-        self.__window = sg.Window('Controle Funcionários', layout_abas)
+        self.__window = sg.Window('Controle Funcionários', layout_abas, font="Lato")
 
     def abre(self):
         event, values = self.__window.Read()

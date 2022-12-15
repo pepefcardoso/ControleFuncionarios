@@ -20,6 +20,14 @@ class Funcionario():
         self.__telefone_celular = telefone_celular
         self.__contato_emergencial = contato_emergencial
         self.__telefone_emergencial = telefone_emergencial
+        self.__matricula = None
+        self.__status = None
+        self.__comentarios = []
+        self.__data_admissao = None
+        self.__area = None
+        self.__contrato = none
+
+
 
     @property
     def nome(self):

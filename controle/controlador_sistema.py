@@ -19,7 +19,5 @@ class ControladorSistema():
             event, values = self.__tela_sistema.abre()
             if event == sg.WIN_CLOSED:
                 break
-            if event == "-FUNCIONARIOS-":
-                self.__tela_sistema.window.disappear()
-                self.__controlador_funcionarios.adiciona_funcionario()
-                self.__tela_sistema.window.reappear()
+            if event == "FUNCIONÁRIOS":
+                self.__controlador_funcionarios.abre_tela_inicial()

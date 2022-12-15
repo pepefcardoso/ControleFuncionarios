@@ -6,8 +6,8 @@ class TelaSistema():
         self.__window = None
 
     def tela_inicial(self):
-        layout = [[sg.Button('-FUNCIONARIOS-')]]
-        self.__window = sg.Window('MENU INICIAL', layout)
+        layout = [[sg.Button('FUNCIONÁRIOS')]]
+        self.__window = sg.Window('MENU INICIAL', layout, font="Lato")
 
     def abre(self):
         event, values = self.__window.Read()

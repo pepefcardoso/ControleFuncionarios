@@ -14,6 +14,20 @@ class ControladorFuncionarios():
         self.__dao_funcionarios = DaoFuncionarios()
         self.__tela_funcionarios = TelaFuncionarios()
 
+    def abre_tela_inicial(self):
+        self.__tela_funcionarios.tela_inicial()
+        while True:
+            self.lista_tabela_funcionarios()
+            event, values = self.__tela_funcionarios.abre()
+            if event in (sg.WIN_CLOSED, "VOLTAR"):
+                self.__tela_funcionarios.fecha()
+                return
+            if event == "NOVO FUNCIONÁRIO":
+                self.__tela_funcionarios.fecha()
+                return self.adiciona_funcionario()
+
+
+
     def consulta_cep(self, cep: str):
         self.valida_cep(cep.strip())
         link = f'https://viacep.com.br/ws/{cep}/json/'
@@ -195,10 +209,11 @@ class ControladorFuncionarios():
         while True:
             event, values = self.__tela_funcionarios.abre()
             if event in (sg.WIN_CLOSED, "Cancelar"):
-                return
+                self.__tela_funcionarios.fecha()
+                return self.abre_tela_inicial()
             if event == "-BUSCA-CEP-":
                 self.atualiza_dados_endereco(values["-CEP-"])
-            if event == "-SALVAR-":
+            if event == "Adicionar Colaborador":
                 try:
                     self.valida_info_cadastro(values)
                     endereco = Endereco(values["-CEP-"], values["-UF-"], values["-CIDADE-"],
@@ -210,7 +225,15 @@ class ControladorFuncionarios():
                                               values["-TELEFONE-CELULAR-"], values["-CONTATO-EMERGENCIAL-"],
                                               values["-TELEFONE-EMERGENCIAL-"])
                     self.__dao_funcionarios.add(funcionario)
-                    print(self.__dao_funcionarios.get_all())
-                    return
+                    self.__tela_funcionarios.fecha()
+                    return self.abre_tela_inicial()
                 except Exception as e:
                     self.__tela_funcionarios.mostra_mensagem("ERRO", e)
+
+    def lista_tabela_funcionarios(self):
+        for i in self.__dao_funcionarios.cache:
+            print(i.cpf)
+
+
+
+

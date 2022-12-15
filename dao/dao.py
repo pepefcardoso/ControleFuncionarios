@@ -2,7 +2,7 @@ from abc import ABC
 import pickle
 
 
-class Dao(ABC):
+class DAO(ABC):
     def __init__(self, datasource=''):
         self.__datasource = datasource
         self.__cache = {}

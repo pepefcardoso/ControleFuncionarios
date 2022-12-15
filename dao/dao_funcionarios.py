@@ -1,8 +1,8 @@
-from dao.abstract_dao import Dao
+from dao.dao import DAo
 from entidade.funcionario import Funcionario
 
 
-class DaoFuncionarios(Dao):
+class FuncionarioDAO(DAO):
     def __init__(self):
         super().__init__('funcionarios.pkl')
 
