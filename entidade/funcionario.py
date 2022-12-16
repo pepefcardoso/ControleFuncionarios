@@ -2,51 +2,39 @@ from datetime import datetime
 from entidade.endereco import Endereco
 from entidade.documentos import Documentos
 from entidade.contatos import Contatos
-
+from entidade.cadastro_basico import CadastroBasico
 
 
 class Funcionario():
     def __init__(self,
-                 nome: str,
-                 sexo: str,
-                 data_nascimento: datetime,
+                 cadastro_basico: CadastroBasico,
                  documentos: Documentos,
                  endereco: Endereco,
                  contatos: Contatos):
-        self.__nome = nome
-        self.__sexo = sexo
-        self.__data_nascimento = data_nascimento
+        self.codigo = None
+        self.__cadastro_basico = cadastro_basico
         self.__documentos = documentos
         self.__endereco = endereco
         self.__contatos = contatos
         self.__contratos = []
 
     @property
-    def nome(self):
-        return self.__nome
+    def codigo(self):
+        return self.__codigo
 
-    @nome.setter
-    def nome(self,nome):
-        if isinstance(nome,str):
-            self.__nome = nome
-
-    @property
-    def sexo(self):
-        return self.__sexo
-
-    @sexo.setter
-    def sexo(self,sexo):
-        if isinstance(sexo,str):
-            self.__sexo = sexo
+    @codigo.setter
+    def codigo(self, codigo: int):
+        if isinstance(codigo, int):
+            self.__codigo = codigo
 
     @property
-    def data_nascimento(self):
-        return self.__data_nascimento
+    def cadastro_basico(self):
+        return self.__cadastro_basico
 
-    @data_nascimento.setter
-    def data_nascimento(self,data_nascimento):
-        if isinstance(data_nascimento,datetime):
-            self.__data_nascimento = data_nascimento
+    @cadastro_basico.setter
+    def cadastro_basico(self, cadastro_basico: int):
+        if isinstance(cadastro_basico, int):
+            self.__cadastro_basico = cadastro_basico
 
     @property
     def documentos(self):
