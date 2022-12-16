@@ -1,4 +1,4 @@
-from entidade.pessoa import Pessoa
+from modelo.pessoa import Pessoa
 
 
 class Setor(Pessoa):

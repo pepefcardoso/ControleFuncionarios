@@ -1,4 +1,4 @@
-from entidade.estado import Estado
+from modelo.estado import Estado
 from datetime import datetime
 
 

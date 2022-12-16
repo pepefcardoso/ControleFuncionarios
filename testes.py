@@ -1,11 +1,7 @@
-'''window.disappear()
-window.reappear()'''
-from datetime import datetime
+from tkinter import Tk, font
 
-
-
-nascimento = "13/12/202"
-
-formato = "%d/%m/%Y"
-
-print(type(datetime.strptime(nascimento, formato)))
+root = Tk()
+font_tuple = font.families()
+root.destroy()
+for font in font_tuple:
+    print(font)

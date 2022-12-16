@@ -1,8 +1,11 @@
 from datetime import datetime
-from entidade.endereco import Endereco
-from entidade.documentos import Documentos
-from entidade.contatos import Contatos
-from entidade.cadastro_basico import CadastroBasico
+from modelo.endereco import Endereco
+from modelo.documentos import Documentos
+from modelo.contatos import Contatos
+from modelo.cadastro_basico import CadastroBasico
+from modelo.setor import Setor
+from modelo.centro_custo import CentroCusto
+from modelo.contrato import Contrato
 
 
 class Funcionario():
@@ -11,12 +14,24 @@ class Funcionario():
                  documentos: Documentos,
                  endereco: Endereco,
                  contatos: Contatos):
+        self.__status = False
         self.codigo = None
         self.__cadastro_basico = cadastro_basico
         self.__documentos = documentos
         self.__endereco = endereco
         self.__contatos = contatos
-        self.__contratos = []
+        self.__contrato = None
+        self.__setor = None
+        self.__centro_custo = None
+
+    @property
+    def status(self):
+        return self.__status
+
+    @status.setter
+    def status(self, status: bool):
+        if isinstance(status, bool):
+            self.__status = status
 
     @property
     def codigo(self):
@@ -64,5 +79,28 @@ class Funcionario():
             self.__contatos = contatos
 
     @property
-    def contratos(self):
-        return self.__contratos
+    def contrato(self):
+        return self.__contrato
+
+    @property
+    def contrato(self, contrato: Contrato):
+        if isinstance(contrato, Contrato):
+            self.__contrato = contrato
+
+    @property
+    def setor(self):
+        return self.__setor
+
+    @setor.setter
+    def setor(self, setor: Setor):
+        if isinstance(setor, Setor):
+            self.__setor = setor
+
+    @property
+    def centro_custo(self):
+        return self.__centro_custo
+
+    @centro_custo.setter
+    def centro_custo(self, centro_custo: CentroCusto):
+        if isinstance(centro_custo, CentroCusto):
+            self.__centro_custo = centro_custo

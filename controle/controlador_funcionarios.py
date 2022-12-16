@@ -3,15 +3,13 @@ import PySimpleGUI as sg
 import requests
 from datetime import datetime
 from controle.excecoes import *
-from entidade.funcionario import Funcionario
-from entidade.endereco import Endereco
-from dao.dao_funcionarios import DaoFuncionarios
+from modelo.funcionario import Funcionario
+from modelo.endereco import Endereco
 
 
 class ControladorFuncionarios():
     def __init__(self, controlador_sistema):
         self.__controlador_sistema = controlador_sistema
-        self.__dao_funcionarios = DaoFuncionarios()
         self.__tela_funcionarios = TelaFuncionarios()
 
     def abre_tela_inicial(self):
@@ -25,8 +23,6 @@ class ControladorFuncionarios():
             if event == "NOVO FUNCIONÁRIO":
                 self.__tela_funcionarios.fecha()
                 return self.adiciona_funcionario()
-
-
 
     def consulta_cep(self, cep: str):
         self.valida_cep(cep.strip())

@@ -1,5 +1,5 @@
 from datetime import datetime
-from entidade.estado import Estado
+from modelo.estado import Estado
 
 
 class Rg():

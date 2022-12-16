@@ -1,5 +1,5 @@
-from entidade.ctps import Ctps
-from entidade.rg import Rg
+from modelo.ctps import Ctps
+from modelo.rg import Rg
 
 
 class Documentos():
