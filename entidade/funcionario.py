@@ -45,7 +45,7 @@ class Funcionario():
 
     @data_nascimento.setter
     def data_nascimento(self,data_nascimento):
-        if isinstance(data_nascimento,date):
+        if isinstance(data_nascimento,datetime):
             self.__data_nascimento = data_nascimento
 
     @property
