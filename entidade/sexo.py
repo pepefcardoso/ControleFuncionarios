@@ -1,6 +1,6 @@
-from entidade.pessoa import Pessoa
+from enum import Enum
 
 
-class Sexo(Pessoa):
-    def __init__(self, nome: str, codigo: int):
-        super().__init__(nome, codigo)
+class Sexo(Enum):
+    MASCULINO = 1
+    FEMININO = 2

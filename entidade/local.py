@@ -1,6 +1,6 @@
-from entidade.pessoa import Pessoa
+from enum import Enum
 
 
-class Local(Pessoa):
-    def __init__(self, nome: str, codigo: int):
-        super().__init__(nome, codigo)
+class Local(Enum):
+    MATRIZ = 1
+    FILIAL = 2

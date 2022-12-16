@@ -2,7 +2,7 @@ from entidade.estado import Estado
 from datetime import datetime
 
 
-class Ctps(self):
+class Ctps():
     def __init__(self, numero: str, serie: str,
                  estado: Estado, data_emissao: datetime):
         self.__numero = numero
