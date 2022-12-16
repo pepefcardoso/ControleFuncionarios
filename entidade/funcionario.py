@@ -1,33 +1,25 @@
-import datetime as date
+from datetime import datetime
 from entidade.endereco import Endereco
+from entidade.documentos import Documentos
+from entidade.contatos import Contatos
+
 
 
 class Funcionario():
-    def __init__(self, nome: str,
-                 sexo: str, rg: str, cpf: str,
-                 data_nascimento: date,
-                 endereco: Endereco, email: str,
-                 telefone_fixo: str, telefone_celular: str,
-                 contato_emergencial: str, telefone_emergencial: str):
+    def __init__(self,
+                 nome: str,
+                 sexo: str,
+                 data_nascimento: datetime,
+                 documentos: Documentos,
+                 endereco: Endereco,
+                 contatos: Contatos):
         self.__nome = nome
         self.__sexo = sexo
-        self.__rg = rg
-        self.__cpf = cpf
         self.__data_nascimento = data_nascimento
+        self.__documentos = documentos
         self.__endereco = endereco
-        self.__email = email
-        self.__telefone_fixo = telefone_fixo
-        self.__telefone_celular = telefone_celular
-        self.__contato_emergencial = contato_emergencial
-        self.__telefone_emergencial = telefone_emergencial
-        self.__matricula = None
-        self.__status = None
-        self.__comentarios = []
-        self.__data_admissao = None
-        self.__area = None
-        self.__contrato = none
-
-
+        self.__contatos = contatos
+        self.__contratos = []
 
     @property
     def nome(self):
@@ -48,24 +40,6 @@ class Funcionario():
             self.__sexo = sexo
 
     @property
-    def rg(self):
-        return self.__rg
-
-    @rg.setter
-    def rg(self,rg):
-        if isinstance(rg,str):
-            self.__rg = rg
-
-    @property
-    def cpf(self):
-        return self.__cpf
-
-    @cpf.setter
-    def cpf(self,cpf):
-        if isinstance(cpf,str):
-            self.__cpf = cpf
-
-    @property
     def data_nascimento(self):
         return self.__data_nascimento
 
@@ -73,6 +47,15 @@ class Funcionario():
     def data_nascimento(self,data_nascimento):
         if isinstance(data_nascimento,date):
             self.__data_nascimento = data_nascimento
+
+    @property
+    def documentos(self):
+        return self.__documentos
+
+    @documentos.setter
+    def documentos(self, documentos: Documentos):
+        if isinstance(documentos, Documentos):
+            self.__documentos = documentos
 
     @property
     def endereco(self):
@@ -84,46 +67,14 @@ class Funcionario():
             self.__endereco = endereco
 
     @property
-    def email(self):
-        return self.__email
+    def contatos(self):
+        return self.__contatos
 
-    @email.setter
-    def email(self,email):
-        if isinstance(email,str):
-            self.__email = email
-
-    @property
-    def telefone_fixo(self):
-        return self.__telefone_fixo
-
-    @telefone_fixo.setter
-    def telefone_fixo(self,telefone_fixo):
-        if isinstance(telefone_fixo,str):
-            self.__telefone_fixo = telefone_fixo
+    @contatos.setter
+    def contatos(self, contatos: Contatos):
+        if isinstance(contatos, Contatos):
+            self.__contatos = contatos
 
     @property
-    def telefone_celular(self):
-        return self.__telefone_celular
-
-    @telefone_celular.setter
-    def telefone_celular(self,telefone_celular):
-        if isinstance(telefone_celular,str):
-            self.__telefone_celular = telefone_celular
-
-    @property
-    def contato_emergencial(self):
-        return self.__contato_emergencial
-
-    @contato_emergencial.setter
-    def contato_emergencial(self,contato_emergencial):
-        if isinstance(contato_emergencial,str):
-            self.__contato_emergencial = contato_emergencial
-
-    @property
-    def telefone_emergencial(self):
-        return self.__telefone_emergencial
-
-    @telefone_emergencial.setter
-    def telefone_emergencial(self,telefone_emergencial):
-        if isinstance(telefone_emergencial,str):
-            self.__telefone_emergencial = telefone_emergencial
+    def contratos(self):
+        return self.__contratos
