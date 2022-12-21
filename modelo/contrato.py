@@ -1,4 +1,4 @@
-from modelo.cargo import Cargo
+'''from modelo.cargo import Cargo
 from datetime import datetime
 from modelo.local import Local
 from modelo.jornada_trabalho import JornadaTrabalho
@@ -41,6 +41,6 @@ class Contrato():
     @.setter
     def (self, ):
         if isinstance(, ):
-            self.__ = 
+            self.__ = '''
 
 

@@ -5,7 +5,7 @@ from modelo.contatos import Contatos
 from modelo.cadastro_basico import CadastroBasico
 from modelo.setor import Setor
 from modelo.centro_custo import CentroCusto
-from modelo.contrato import Contrato
+'''from modelo.contrato import Contrato'''
 
 
 class Funcionario():
@@ -78,14 +78,14 @@ class Funcionario():
         if isinstance(contatos, Contatos):
             self.__contatos = contatos
 
-    @property
+    '''@property
     def contrato(self):
         return self.__contrato
 
     @property
     def contrato(self, contrato: Contrato):
         if isinstance(contrato, Contrato):
-            self.__contrato = contrato
+            self.__contrato = contrato'''
 
     @property
     def setor(self):
